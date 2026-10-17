@@ -17,7 +17,8 @@ This is a learning project: while working, briefly explain the Elixir/OTP/Ecto d
 
 ## 1. Pick and check the issue
 - If the target is `next`: `gh issue list --repo JVMartyns/thiago-bonitao --label agent:ready --state open`
-  and choose the lowest number whose `Blocked by` issues are all closed.
+  and choose the lowest number whose native *blocked by* issues are all closed:
+  `gh issue view <N> --repo JVMartyns/thiago-bonitao --json blockedBy --jq '.blockedBy.nodes[] | "#\(.number) \(.state)"'`
 - `gh issue view <N> --repo JVMartyns/thiago-bonitao --comments`
 - Stop and tell the user if: a blocking issue is still open, the issue lacks `agent:ready`, or an
   acceptance criterion is ambiguous. For ambiguity, propose a comment for the issue and the

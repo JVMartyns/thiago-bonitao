@@ -38,12 +38,12 @@ Agents fail on vague issues the same way new teammates do — just faster. A goo
 | **Files likely touched** | Narrows the search; reduces wrong-place edits. |
 | **Constraints** | Libraries allowed, patterns to follow, things *not* to do. |
 | **Verification** | Exact commands that must pass (`mix precommit`, a specific test file). |
-| **Dependencies** | `Blocked by #N` — agents must not start blocked work. |
+| **Dependencies** | Native GitHub *blocked by* relationships (not body text) — agents must not start blocked work. |
 
 ### Definition of Ready (DoR) — before adding `agent:ready`
 - [ ] Every acceptance criterion is objectively checkable.
 - [ ] Out-of-scope section is filled.
-- [ ] Blocking issues are closed.
+- [ ] Every *blocked by* relationship is set, and all blocking issues are closed.
 - [ ] Size is `S` or `M` (an `L` must be split).
 
 ## 3. Labels
@@ -81,8 +81,9 @@ Defined in `.claude/skills/*/SKILL.md`; both are user-invoked only.
 gh issue create --template agent-task.yml                 # interactive, uses the form
 gh issue create --title "feat(manager): ..." --body-file issue.md \
   --label "type:feat,area:manager,size:M,agent:ready"
+gh issue edit 7 --add-blocked-by 5,6                      # native dependency
 gh issue list --label agent:ready
-gh issue view 7
+gh issue view 7 --json blockedBy --jq '.blockedBy.nodes[] | "#\(.number) \(.state)"'
 gh issue edit 7 --add-label agent:in-progress --remove-label agent:ready
 gh pr create --fill --body "Closes #7"
 ```
@@ -99,4 +100,4 @@ gh pr create --fill --body "Closes #7"
 ## 6. Backlog seed
 
 The planned commit story in doc 03 §4 becomes the initial issue backlog (≈15 issues), each
-grouping 1–3 commits, linked by `Blocked by #N` in the same order.
+grouping 1–3 commits, linked by native *blocked by* relationships in the same order.

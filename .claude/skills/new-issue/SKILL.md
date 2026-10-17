@@ -33,10 +33,10 @@ Follow them exactly.
    - `### Files likely touched`
    - `### Constraints` — allowed libraries, patterns, things not to do
    - `### Verification` — exact commands (always include `mix precommit`)
-   - `### Blocked by` — `#N` list or `none`
    - `### Size` — `S (< 1h)` or `M (half a day)`
 
    Title: Conventional Commit style, `<type>(<scope>): <imperative summary>`, ≤ 72 chars.
+   Blocked by: the issue numbers this depends on (shown in the draft, set with `--blocked-by`).
    Labels: `type:<type>`, `area:<scope>`, `size:<S|M>`, plus `agent:ready` only if every
    Definition of Ready item holds.
 
@@ -46,8 +46,10 @@ Follow them exactly.
 5. **Create** after approval:
    ```bash
    gh issue create --repo JVMartyns/thiago-bonitao \
-     --title "<title>" --body-file <tmp file> --label "<comma,separated,labels>"
+     --title "<title>" --body-file <tmp file> --label "<comma,separated,labels>" \
+     --blocked-by "<N,M>"   # omit if nothing blocks it
    ```
+   Dependencies are native GitHub relationships, never a section in the body.
    Write the body to a temp file in the scratchpad directory, not the repo.
 
 6. Reply with the issue URL and one line on what it unblocks.
