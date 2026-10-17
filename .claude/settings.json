@@ -1,0 +1,16 @@
+{
+  "extraKnownMarketplaces": {
+    "elixir-agent-tools": {
+      "source": {
+        "source": "github",
+        "repo": "georgeguimaraes/elixir-agent-tools"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "elixir-dev@elixir-agent-tools": true,
+    "mix-format@elixir-agent-tools": true,
+    "mix-compile@elixir-agent-tools": true,
+    "mix-credo@elixir-agent-tools": true
+  }
+}
