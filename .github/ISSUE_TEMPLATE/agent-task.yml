@@ -1,0 +1,75 @@
+name: Agent-ready task
+description: A fully specified unit of work that a human or AI agent can implement without follow-up questions.
+title: "<type>(<scope>): <imperative summary>"
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Write this as a spec. See `docs/06-issue-driven-agentic-development.md` §2.
+        Add the `agent:ready` label only when the Definition of Ready is met.
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: The outcome in 1–2 sentences (what and why, not how).
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Links to rules in docs/01 (R1–R7, A1–A8), related issues, relevant files.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Testable checkboxes. Each one should become at least one test.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      value: |
+        **In scope:**
+        -
+
+        **Out of scope:**
+        -
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Files likely touched
+      placeholder: lib/token_system/tokens/manager.ex, test/token_system/tokens/manager_test.exs
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Allowed libraries, patterns to follow, things not to do.
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      value: |
+        - `mix precommit` passes
+    validations:
+      required: true
+  - type: input
+    id: blocked_by
+    attributes:
+      label: Blocked by
+      placeholder: "#3, #4 (or 'none')"
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options: ["S (< 1h)", "M (half a day)", "L (must be split)"]
+    validations:
+      required: true

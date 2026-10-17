@@ -1,0 +1,32 @@
+name: Bug report
+description: Something behaves differently from the rules in docs/01.
+title: "fix(<scope>): <what is wrong>"
+labels: ["type:fix"]
+body:
+  - type: textarea
+    id: rule
+    attributes:
+      label: Broken rule
+      description: Which rule (R1–R7, A1–A8) or API contract is violated?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact requests/commands. A failing test is even better.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      value: |
+        - [ ] A regression test reproduces the bug and now passes
+        - [ ] `mix precommit` passes
