@@ -44,7 +44,7 @@ Agents fail on vague issues the same way new teammates do — just faster. A goo
 - [ ] Every acceptance criterion is objectively checkable.
 - [ ] Out-of-scope section is filled.
 - [ ] Every *blocked by* relationship is set, and all blocking issues are closed.
-- [ ] Size is `S` or `M` (an `L` must be split).
+- [ ] A `size:S` or `size:M` label is set (an `L` must be split). Size lives only in the label.
 
 ## 3. Labels
 
@@ -55,7 +55,7 @@ Agents fail on vague issues the same way new teammates do — just faster. A goo
 | `size:S` `size:M` `size:L` | S < 1h, M = half a day, L = must be split |
 | `agent:ready` | Fully specified; an agent may pick it up |
 | `agent:in-progress` | Someone (human or agent) is working on it |
-| `needs-human` | Agent got blocked / a decision is required |
+| `needs-human` | Agent got blocked / a decision is required. Also set on issues opened from the web form until triaged |
 
 ## 4. Working with issues from Claude Code
 
