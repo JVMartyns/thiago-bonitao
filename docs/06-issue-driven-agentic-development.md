@@ -78,14 +78,15 @@ Defined in `.claude/skills/*/SKILL.md`; both are user-invoked only.
 
 ### `gh` cheat sheet
 ```bash
-gh issue create --template agent-task.yml                 # interactive, uses the form
+# gh can't render YAML issue forms (--template only knows Markdown templates),
+# so write the body with the form's ### headings and pass it as a file:
 gh issue create --title "feat(manager): ..." --body-file issue.md \
   --label "type:feat,area:manager,size:M,agent:ready"
 gh issue edit 7 --add-blocked-by 5,6                      # native dependency
 gh issue list --label agent:ready
 gh issue view 7 --json blockedBy --jq '.blockedBy.nodes[] | "#\(.number) \(.state)"'
 gh issue edit 7 --add-label agent:in-progress --remove-label agent:ready
-gh pr create --fill --body "Closes #7"
+gh pr create --title "feat(manager): ..." --body-file pr.md   # template sections + "Closes #7"
 ```
 
 ## 5. Guardrails for agents (also in `AGENTS.md`)
