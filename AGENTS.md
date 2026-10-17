@@ -26,6 +26,14 @@ Learning project based on the Just Travel technical challenge.
 - No new dependencies unless the issue allows it.
 - Never use `Process.sleep/1` with fixed durations in tests.
 
+## Claude Code tooling
+- Skills: `/new-issue <idea>` drafts an agent-ready issue; `/work-issue <N|next>` takes an issue to a PR.
+- Plugins (`.claude/settings.json`, marketplace `georgeguimaraes/elixir-agent-tools`): `elixir-dev` skills
+  (Elixir, Phoenix, Ecto, OTP) and hooks that run `mix format`, `mix compile --warnings-as-errors`
+  and `mix credo` after every edit — fix what they report before moving on.
+- MCP: `context7` for library docs; GitHub MCP (needs `GITHUB_PERSONAL_ACCESS_TOKEN`) or the `gh` CLI;
+  Tidewave (from issue #1) for evaluating code, docs, SQL and logs in the running app.
+
 ## Commands
 ```bash
 docker compose up -d db   # PostgreSQL

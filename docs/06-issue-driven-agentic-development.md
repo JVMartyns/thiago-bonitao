@@ -74,6 +74,14 @@ var must exist before launching `claude`:
 2. Export it in your shell profile (`~/.bashrc`): `export GITHUB_PERSONAL_ACCESS_TOKEN=...`
 3. Restart Claude Code and run `/mcp` to confirm `github` is connected.
 
+### Via project skills (shortcuts for the whole loop)
+| Skill | What it does |
+|---|---|
+| `/new-issue <rule, idea or bug>` | Reads docs/01 and existing issues, drafts an issue in the agent-task format, shows it for approval, then creates it with labels |
+| `/work-issue <N \| next>` | Claims the issue, branches, writes tests first, implements, runs `mix precommit`, commits conventionally, opens a PR with `Closes #N` (never merges) |
+
+Defined in `.claude/skills/*/SKILL.md`; both are user-invoked only.
+
 ### Via `gh` CLI (always works)
 ```bash
 gh issue create --template agent-task.yml                 # interactive, uses the form
