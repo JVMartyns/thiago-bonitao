@@ -1,0 +1,25 @@
+# Mix / Elixir
+/_build/
+/cover/
+/deps/
+/doc/
+/.fetch
+erl_crash.dump
+*.ez
+token_system-*.tar
+/tmp/
+/priv/plts/
+
+# Env / secrets
+.env
+.env.*
+
+# Editors / OS
+.elixir_ls/
+.lexical/
+.vscode/
+.idea/
+.DS_Store
+
+# Original challenge brief (kept out of the public repo)
+*.pptx.pdf
