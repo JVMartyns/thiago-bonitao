@@ -108,3 +108,15 @@ gh pr create --title "feat(manager): ..." --body-file pr.md   # template section
 
 The planned commit story in doc 03 §4 becomes the initial issue backlog (≈15 issues), each
 grouping 1–3 commits, linked by native *blocked by* relationships in the same order.
+
+The backlog hangs off one **parent issue** (e.g. *"Token management API — Just Travel challenge"*),
+and every backlog issue is a **sub-issue** of it, so GitHub shows overall progress on the parent:
+
+```bash
+gh issue create --title "Token management API — Just Travel challenge" --body-file epic.md
+gh issue create ... --parent <epic#> --blocked-by <previous#>   # each backlog issue
+gh issue edit 7 --parent <epic#>                                # attach an existing issue
+```
+
+The parent is a tracking issue only. It never gets `agent:ready`. Close it by hand once all its
+sub-issues are closed.

@@ -46,8 +46,10 @@ Follow them exactly.
    ```bash
    gh issue create --repo JVMartyns/thiago-bonitao \
      --title "<title>" --body-file <tmp file> --label "<comma,separated,labels>" \
-     --blocked-by "<N,M>"   # omit if nothing blocks it
+     --blocked-by "<N,M>" --parent <epic#>
    ```
+   Omit `--blocked-by` if nothing blocks it, and `--parent` if the backlog has no parent issue yet
+   (doc 06 §6).
    Dependencies are native GitHub relationships, never a section in the body.
    Write the body to a temp file in the scratchpad directory, not the repo.
 
