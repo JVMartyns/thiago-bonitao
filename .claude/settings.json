@@ -11,6 +11,7 @@
     "elixir-dev@elixir-agent-tools": true,
     "mix-format@elixir-agent-tools": true,
     "mix-compile@elixir-agent-tools": true,
-    "mix-credo@elixir-agent-tools": true
+    "mix-credo@elixir-agent-tools": true,
+    "github@anthropic-plugin-directory": false
   }
 }

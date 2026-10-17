@@ -1,7 +1,7 @@
 # 06 — Issue-Driven & Agentic Development
 
 > How work flows in this repo: **every change starts as a GitHub issue**, and issues are written
-> so that either a human **or an AI agent** (Claude Code, via the GitHub MCP or `gh` CLI) can
+> so that either a human **or an AI agent** (Claude Code, via the `gh` CLI) can
 > pick one up and deliver a correct PR without asking follow-up questions.
 
 ---
@@ -59,20 +59,14 @@ Agents fail on vague issues the same way new teammates do — just faster. A goo
 
 ## 4. Working with issues from Claude Code
 
-### Via GitHub MCP (preferred when connected)
-The GitHub MCP server exposes tools such as `issue_write` / `list_issues` / `get_issue` /
-`create_pull_request`. Typical prompts:
+### GitHub access: `gh` CLI only
+The GitHub MCP plugin is disabled for this project (`.claude/settings.json`), so agents and humans
+use the `gh` CLI for issues, PRs, labels and Actions runs. Check it with `gh auth status`; the
+token needs the `repo` scope. Typical prompts:
 
 - *"Read issue #7 in JVMartyns/thiago-bonitao and implement it following AGENTS.md."*
 - *"List open issues labeled agent:ready, pick the lowest number not blocked, and start it."*
 - *"Draft an agent-task issue for rule R5 (eviction) and create it with labels type:feat, area:manager, size:M."*
-
-**Setup:** the plugin sends `Authorization: Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}`, so that env
-var must exist before launching `claude`:
-1. Create a fine-grained PAT (GitHub → Settings → Developer settings) with access to this repo:
-   *Issues: RW, Pull requests: RW, Contents: RW, Metadata: R*.
-2. Export it in your shell profile (`~/.bashrc`): `export GITHUB_PERSONAL_ACCESS_TOKEN=...`
-3. Restart Claude Code and run `/mcp` to confirm `github` is connected.
 
 ### Via project skills (shortcuts for the whole loop)
 | Skill | What it does |
@@ -82,7 +76,7 @@ var must exist before launching `claude`:
 
 Defined in `.claude/skills/*/SKILL.md`; both are user-invoked only.
 
-### Via `gh` CLI (always works)
+### `gh` cheat sheet
 ```bash
 gh issue create --template agent-task.yml                 # interactive, uses the form
 gh issue create --title "feat(manager): ..." --body-file issue.md \
