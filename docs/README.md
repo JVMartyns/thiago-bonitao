@@ -13,7 +13,7 @@ the rules we follow while building it. Each one maps to an evaluation criterion 
 | [03 — Commits & GitHub workflow](03-commits-and-github-workflow.md) | Estruturação de Commits | How do we write commits, branches and PRs? What is the planned commit history? |
 | [04 — Testing strategy](04-testing-strategy.md) | Testes | What do we test at each layer (unit / integration / concurrency) and how? |
 | [05 — CI pipeline](05-ci-pipeline.md) | All of the above, automated | What runs on every push, in which order, and why? |
-| [06 — Issue-driven & agentic development](06-issue-driven-agentic-development.md) | Workflow | How issues are written so humans or AI agents can implement them; labels; GitHub MCP / `gh` usage |
+| [06 — Issue-driven & agentic development](06-issue-driven-agentic-development.md) | Workflow | How issues are written so humans or AI agents can implement them; labels; `gh` usage |
 
 ## Stack at a glance
 
