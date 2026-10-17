@@ -33,7 +33,6 @@ Follow them exactly.
    - `### Files likely touched`
    - `### Constraints` — allowed libraries, patterns, things not to do
    - `### Verification` — exact commands (always include `mix precommit`)
-   - `### Size` — `S (< 1h)` or `M (half a day)`
 
    Title: Conventional Commit style, `<type>(<scope>): <imperative summary>`, ≤ 72 chars.
    Blocked by: the issue numbers this depends on (shown in the draft, set with `--blocked-by`).
